@@ -15,3 +15,7 @@ message(STATUS "Found PoDoFo: ${PoDoFo_VERSION}")
 # This project will output an executable file
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} podofo::podofo)
+
+# Install: executable + runtime dependencies (DLLs) into a clean directory.
+include(InstallRequiredSystemLibraries)
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION .)
